@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Movie.destroy_all
+List.destroy_all
+Bookmark.destroy_all
+
+10.times { Movie.create(title: Faker::Movie.title, overview: Faker::Movie.quote, poster_url: "https://image.tmdb.org/t/p/original/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg", rating: rand(1...10)) }
+List.create(name: "My favourite movies")
+List.create(name: "Movies yet to watch")
+List.create(name: "Movies I dislike")
