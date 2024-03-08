@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/2000/300);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://st2.depositphotos.com/1105977/9877/i/450/depositphotos_98775856-stock-photo-retro-film-production-accessories-still.jpg);">
   <div class="container">
     <h1>Save any kind of movies</h1>
     <p>Classic</p>
@@ -9,18 +9,23 @@
     <div class="mt-5">
         <h1>Lists</h1>
     </div>
-    <div class="row">
+    <div class="d-flex row">
         <% @lists.each do |list| %>
-            <div class="cards" style="width: 18rem;">
-                <img src="https://picsum.photos/200/200" class="card-img-top" alt="...">
-                <p class="card-text"><%= link_to list.name, list_path(list) %></p>
+            <div class="cards grid" style="width: 18rem;">
+                <%# <img src="https://picsum.photos/200/200" class="card-img-top" alt="..."> %>
+                <% if list.photo.attached? %>
+                <%= cl_image_tag (list.photo.key), class:"rounded-5 opacity-75 justify-content-center", height: 200, width: 200 %>
+                <% end %>
+                <div class="centered">
+                    <%= link_to list.name, list_path(list) %>
+                </div>
             </div>
         <% end %>
     </div>
     <div>
-        <a class="btn btn-flat" href="#">Book now</a>
+        <button type="button" class="btn btn-primary mt-3"><%= link_to "Add list", new_list_path %></button>
     </div>
-</div>
+<div>
 
-<%= link_to "Add list", new_list_path %>
+
 

@@ -12,10 +12,10 @@
       <ul class="navbar-nav me-auto">
         <%# if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "My lists", "#", class: "nav-link" %>
+            <%= link_to "My lists", lists_path, class:"nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "New list", "#", class: "nav-link" %>
+            <%= link_to "Add list", new_list_path, class:"nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://media.licdn.com/dms/image/C4D03AQFtQl6BJsI0SQ/profile-displayphoto-shrink_800_800/0/1628170575799?e=1715212800&v=beta&t=_9ZsdA9vy7Yt_eh20mNC5FaLWzSsomhGTphAA0gD6_0", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
